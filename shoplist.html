@@ -66,108 +66,132 @@
 				<td>$</td>	
 				<td>0.29</td>
 				<td></td>	
-				<td><button id='ba' value=0 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='ba' value="Add" onclick="addToList('Apple',.29)" /></td>	
 			</tr>
 			<tr>
 				<td>Pear</td>	
 				<td>$</td>	
 				<td>0.25</td>
 				<td></td>	
-				<td><button id='bb' value=1 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='bb' value="Add" onclick="addToList('Pear',.25)" /></td>	
 			</tr>	
 			<tr>
 				<td>Peach</td>	
 				<td>$</td>	
 				<td>0.37</td>
 				<td></td>	
-				<td><button id='bc' value=2 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='bc' value="Add" onclick="addToList('Peach',.37)" /></td>	
 			</tr>
 			<tr>
 				<td>Banana</td>	
 				<td>$</td>	
 				<td>0.85</td>
 				<td></td>	
-				<td><button id='bd' value=3 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='bd' value="Add" onclick="addToList('Banana',.85)" /></td>	
 			</tr>
 			<tr>
 				<td>Lime</td>	
 				<td>$</td>	
 				<td>0.25</td>
 				<td></td>	
-				<td><button id='be' value=4 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='be' value="Add" onclick="addToList('Lime',.25)" /></td>	
 			</tr>
 			<tr>
 				<td>Lemon</td>	
 				<td>$</td>	
 				<td>0.29</td>
 				<td></td>	
-				<td><button id='bf' value=5 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='bf' value="Add" onclick="addToList('Lemon',.29)" /></td>	
 			</tr>
 			<tr>
 				<td>Melon</td>	
 				<td>$</td>	
 				<td>2.59</td>
 				<td></td>	
-				<td><button id='bg' value=6 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='bg' value="Add" onclick="addToList('Melon',2.59)" /></td>	
 			</tr>
 			<tr>
 				<td>Gourd</td>	
 				<td>$</td>	
 				<td>2.59</td>
 				<td></td>	
-				<td><button id='bh' value=7 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='bh' value="Add" onclick="addToList('Gourd',2.59)" /></td>	
 			</tr>
 			<tr>
 				<td>Pumpkin</td>	
 				<td>$</td>	
 				<td>3.28</td>
 				<td></td>	
-				<td><button id='bi' value=8 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='bi' value="Add" onclick="addToList('Pumpkin',3.28)" /></td>	
 			</tr>
 			<tr>
 				<td>Kiwi</td>	
 				<td>$</td>	
 				<td>0.29</td>
 				<td></td>	
-				<td><button id='bj' value=9 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='bj' value="Add" onclick="addToList('Kiwi',.29)" /></td>	
 			</tr>
 			<tr>
 				<td>Orange</td>	
 				<td>$</td>	
 				<td>0.37</td>
 				<td></td>	
-				<td><button id='bk' value=10 onclick="addToList()">Add</button></td>	
+				<td><input type="button" id='bk' value="Add" onclick="addToList('Orange',.37)" /></td>	
 			</tr>
 
 		</table>
 		<br /><br /><br />
-		<table id='purch'>
+		<table id="purch">
 			<tr>
 				<th>Purchased Product</th>
 				<th>|</th>
 				<th>Price</th>
 			</tr>
 		</table>
+		<input type="button" value="checkout" onclick="printCart()" />
+		<p id="final"></p>
 		
 
 		<script type="text/javascript">
-		let table1 = document.getElementById("#purch");
 		
-		function addToList(){
-			var fired_button = this.val();
+		let nAr = [];
+		let pAr =[];
+		
+		function addToList(name, price){
 			
-				let r = table1.insertRow(table.length);
-				let p1 = row.insertCell(1);
-				let p2 = row.insertCell(2);
-				let p3 = row.insertCell(3);
-				
-				p1.innerHTML=products(fired_button);
-				p2.innerHTML='$';
-				p3.innerHTML=prices(fired_button);
+			nAr.push(name);
+			pAr.push(price);
 			
 		};
+		
+		function printCart() {
+			let i;
+			let total = 0;
+			for (i = 0; i < pAr.length; i++) {
+				total += pAr[i];
+				
+				let printProduct = nAr[i];
+				let printPrice = pAr[i];
+				
+				let t = document.getElementById("purch");
+				let r = t.insertRow(i+1);
+				
+				let c1 = r.insertCell(0);
+				let c2 = r.insertCell(1);
+				let c3 = r.insertCell(2);
+				
+				c1.innerHTML = printProduct;
+				c2.innerHTML = "$";
+				c3.innerHTML = printPrice;
+			}
+			let finalCart = document.getElementById("final");
+			
+			finalCart.innerHTML = "total: " + total;
+		}
+
 
 		
+	
 		</script>
 	
 </body>
