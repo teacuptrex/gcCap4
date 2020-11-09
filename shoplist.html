@@ -1,0 +1,174 @@
+<html>
+<head>
+	<script type="text/javascript">
+		let products=[
+			'Apple',
+			'Pear',
+			'Peach',
+			'Banana',
+			'Lime',
+			'Lemon',
+			'Melon',
+			'Gourd',
+			'Pumpkin',
+			'Kiwi',
+			'Orange'			
+		]
+		let prices=[
+			0.29,
+			0.25,
+			0.37,
+			0.85,
+			0.25,
+			0.29,
+			2.59,
+			2.39,
+			3.28,
+			0.29,
+			0.37			
+		]
+		
+		let table = document.getElementById("#prods");
+		
+		function productTable() {
+			for (let i = 0; i < products.length; i++) {
+				let row = table.insertRow(i+1);
+				let p1 = row.insertCell(1);
+				row.insertCell(2) = '|';
+				let p2 = row.insertCell(3);
+				row.insertCell(4) = '|';
+				row.insertCell(5) = '|';
+				
+				p1.innerHTML=products(i);
+				p2.innerHTML=prices(i);
+			}			
+		}
+		
+	</script>
+
+</head>
+
+
+<body>
+	<h1>Shopping Cart Mock-Up</h1>
+	<h2>Products</h2>
+
+		<table id='prods'>
+			<tr>
+				<th>Product</th>
+				<th>|</th>
+				<th>Price</th>
+				<th>|</th>
+				<th>Click to Purchase</th>
+			</tr>
+			<tr>
+				<td>Apple</td>	
+				<td>$</td>	
+				<td>0.29</td>
+				<td></td>	
+				<td><button id='ba' value=0 onclick="addToList()">Add</button></td>	
+			</tr>
+			<tr>
+				<td>Pear</td>	
+				<td>$</td>	
+				<td>0.25</td>
+				<td></td>	
+				<td><button id='bb' value=1 onclick="addToList()">Add</button></td>	
+			</tr>	
+			<tr>
+				<td>Peach</td>	
+				<td>$</td>	
+				<td>0.37</td>
+				<td></td>	
+				<td><button id='bc' value=2 onclick="addToList()">Add</button></td>	
+			</tr>
+			<tr>
+				<td>Banana</td>	
+				<td>$</td>	
+				<td>0.85</td>
+				<td></td>	
+				<td><button id='bd' value=3 onclick="addToList()">Add</button></td>	
+			</tr>
+			<tr>
+				<td>Lime</td>	
+				<td>$</td>	
+				<td>0.25</td>
+				<td></td>	
+				<td><button id='be' value=4 onclick="addToList()">Add</button></td>	
+			</tr>
+			<tr>
+				<td>Lemon</td>	
+				<td>$</td>	
+				<td>0.29</td>
+				<td></td>	
+				<td><button id='bf' value=5 onclick="addToList()">Add</button></td>	
+			</tr>
+			<tr>
+				<td>Melon</td>	
+				<td>$</td>	
+				<td>2.59</td>
+				<td></td>	
+				<td><button id='bg' value=6 onclick="addToList()">Add</button></td>	
+			</tr>
+			<tr>
+				<td>Gourd</td>	
+				<td>$</td>	
+				<td>2.59</td>
+				<td></td>	
+				<td><button id='bh' value=7 onclick="addToList()">Add</button></td>	
+			</tr>
+			<tr>
+				<td>Pumpkin</td>	
+				<td>$</td>	
+				<td>3.28</td>
+				<td></td>	
+				<td><button id='bi' value=8 onclick="addToList()">Add</button></td>	
+			</tr>
+			<tr>
+				<td>Kiwi</td>	
+				<td>$</td>	
+				<td>0.29</td>
+				<td></td>	
+				<td><button id='bj' value=9 onclick="addToList()">Add</button></td>	
+			</tr>
+			<tr>
+				<td>Orange</td>	
+				<td>$</td>	
+				<td>0.37</td>
+				<td></td>	
+				<td><button id='bk' value=10 onclick="addToList()">Add</button></td>	
+			</tr>
+
+		</table>
+		<br /><br /><br />
+		<table id='purch'>
+			<tr>
+				<th>Purchased Product</th>
+				<th>|</th>
+				<th>Price</th>
+			</tr>
+		</table>
+		
+
+		<script type="text/javascript">
+		let table1 = document.getElementById("#purch");
+		
+		function addToList(){
+			var fired_button = this.val();
+			
+				let r = table1.insertRow(table.length);
+				let p1 = row.insertCell(1);
+				let p2 = row.insertCell(2);
+				let p3 = row.insertCell(3);
+				
+				p1.innerHTML=products(fired_button);
+				p2.innerHTML='$';
+				p3.innerHTML=prices(fired_button);
+			
+		};
+
+		
+		</script>
+	
+</body>
+</html>
